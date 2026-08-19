@@ -1,0 +1,14 @@
+{
+  "name": "the-news-saathi",
+  "version": "1.0.0",
+  "description": "The News Saathi - Multi-source news dashboard",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.21.2",
+    "rss-parser": "^3.13.0"
+  }
+}

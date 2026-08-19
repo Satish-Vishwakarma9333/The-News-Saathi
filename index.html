@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>The News Saathi</title>
+
+    <link
+        rel="stylesheet"
+        href="style.css"
+    >
+
+    <link
+        rel="preconnect"
+        href="https://fonts.googleapis.com"
+    >
+
+    <link
+        rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossorigin
+    >
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet"
+    >
+</head>
+
+<body>
+
+    <!-- ================= HEADER ================= -->
+
+    <header class="header">
+
+        <div class="brand">
+
+            <div class="brand-icon">
+                📰
+            </div>
+
+            <div class="brand-text">
+
+                <h1>
+                    The News Saathi
+                </h1>
+
+                <p>
+                    Five sources. One news desk.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="header-actions">
+
+            <div class="last-update">
+
+                <span>
+                    🕐
+                </span>
+
+                <span>
+                    Last update:
+                </span>
+
+                <strong id="lastUpdated">
+                    --:--
+                </strong>
+
+            </div>
+
+
+            <button
+                id="refreshBtn"
+                class="refresh-btn"
+            >
+
+                <span id="refreshIcon">
+                    ↻
+                </span>
+
+                Refresh
+
+            </button>
+
+
+            <button
+                id="darkModeBtn"
+                class="icon-btn"
+                title="Toggle Dark Mode"
+            >
+                🌙
+            </button>
+
+
+            <button
+                id="notesBtn"
+                class="notes-btn"
+            >
+                📝
+                Notes
+            </button>
+
+        </div>
+
+    </header>
+
+
+    <!-- ================= HOME BAR ================= -->
+
+    <section class="home-bar">
+
+        <div>
+
+            <strong>
+                Home
+            </strong>
+
+            <span>
+                · Latest headlines
+            </span>
+
+        </div>
+
+        <div
+            class="mobile-update"
+            id="mobileUpdated"
+        >
+            Updated --
+        </div>
+
+    </section>
+
+
+    <!-- ================= NEWS CONTAINER ================= -->
+
+    <main>
+
+        <section
+            id="newsGrid"
+            class="news-grid"
+        >
+
+            <!-- JavaScript will create
+                 five news columns here -->
+
+        </section>
+
+    </main>
+
+
+    <!-- ================= NOTES PANEL ================= -->
+
+    <aside
+        id="notesPanel"
+        class="notes-panel"
+    >
+
+        <div class="notes-header">
+
+            <div>
+
+                <h2>
+                    📝 My Notes
+                </h2>
+
+                <p>
+                    Your notes are saved in this browser.
+                </p>
+
+            </div>
+
+            <button
+                id="closeNotes"
+                class="close-small"
+            >
+                ✕
+            </button>
+
+        </div>
+
+
+        <textarea
+            id="notesInput"
+            placeholder="Write your notes here..."
+        ></textarea>
+
+
+        <button
+            id="saveNotes"
+            class="save-notes"
+        >
+
+            💾
+            Save Notes
+
+        </button>
+
+
+        <span
+            id="notesStatus"
+            class="notes-status"
+        ></span>
+
+    </aside>
+
+
+    <!-- ================= NEWS MODAL ================= -->
+
+    <div
+        id="newsModal"
+        class="modal-overlay"
+    >
+
+        <div
+            id="newsSummary"
+            class="news-modal"
+        >
+
+            <button
+                id="closeModal"
+                class="modal-close"
+            >
+                ✕
+            </button>
+
+
+            <!-- SOURCE -->
+
+            <div class="modal-source">
+
+                <div
+                    id="modalSourceLogo"
+                    class="modal-source-logo"
+                >
+                    ND
+                </div>
+
+                <div>
+
+                    <div
+                        id="modalSource"
+                        class="modal-source-name"
+                    >
+                        NDTV
+                    </div>
+
+                    <div
+                        id="modalDate"
+                        class="modal-date"
+                    >
+                        Latest News
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- TITLE -->
+
+            <h2
+                id="modalTitle"
+                class="modal-title"
+            >
+                News headline
+            </h2>
+
+
+            <!-- SUMMARY -->
+
+            <div class="summary-box">
+
+                <h3>
+                    📄 News Summary
+                </h3>
+
+                <p id="modalSummary">
+                    News summary will appear here.
+                </p>
+
+            </div>
+
+
+            <!-- BUTTONS -->
+
+            <div class="modal-buttons">
+
+                <button
+                    id="screenshotBtn"
+                    class="screenshot-btn"
+                >
+
+                    📸
+                    Screenshot
+
+                </button>
+
+
+                <a
+                    id="readOriginal"
+                    href="#"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="read-btn"
+                >
+
+                    Read on
+                    <span id="readSource">
+                        NDTV
+                    </span>
+
+                    ↗
+
+                </a>
+
+            </div>
+
+
+            <p class="modal-footer">
+
+                The News Saathi provides
+                headlines and summaries and
+                redirects you to the original
+                publisher.
+
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <!-- ================= JAVASCRIPT ================= -->
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>

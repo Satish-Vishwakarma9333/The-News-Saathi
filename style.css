@@ -1,0 +1,1540 @@
+/* =========================================================
+   THE NEWS SAATHI
+   CLEAN + READABLE UI
+========================================================= */
+
+:root {
+    --bg: #f4f7fb;
+    --surface: #ffffff;
+    --surface-soft: #f8fafc;
+    --text: #172033;
+    --text-dark: #0f172a;
+    --muted: #64748b;
+    --border: #e2e8f0;
+    --primary: #2563eb;
+    --primary-dark: #1d4ed8;
+    --success: #16a34a;
+    --danger: #ef4444;
+    --shadow: 0 10px 30px rgba(15, 23, 42, 0.08);
+    --shadow-big: 0 25px 70px rgba(0, 0, 0, 0.30);
+}
+
+html.dark {
+    --bg: #070b14;
+    --surface: #111827;
+    --surface-soft: #172033;
+    --text: #e5e7eb;
+    --text-dark: #f8fafc;
+    --muted: #94a3b8;
+    --border: #263247;
+    --primary: #60a5fa;
+    --primary-dark: #3b82f6;
+    --shadow: 0 10px 35px rgba(0, 0, 0, 0.3);
+    --shadow-big: 0 25px 80px rgba(0, 0, 0, 0.6);
+}
+
+
+/* =========================================================
+   RESET
+========================================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    min-height: 100vh;
+
+    font-family:
+        "Inter",
+        system-ui,
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        sans-serif;
+
+    background: var(--bg);
+    color: var(--text);
+
+    transition:
+        background 0.25s ease,
+        color 0.25s ease;
+}
+
+
+/* =========================================================
+   HEADER
+========================================================= */
+
+.header {
+    width: calc(100% - 36px);
+    max-width: 1900px;
+
+    min-height: 78px;
+
+    margin: 18px auto 14px;
+
+    padding: 14px 20px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 20px;
+
+    background: var(--surface);
+
+    border: 1px solid var(--border);
+
+    border-radius: 20px;
+
+    box-shadow: var(--shadow);
+
+    position: sticky;
+    top: 12px;
+
+    z-index: 100;
+}
+
+
+/* =========================================================
+   BRAND
+========================================================= */
+
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.brand-icon {
+    width: 45px;
+    height: 45px;
+
+    display: grid;
+    place-items: center;
+
+    border-radius: 13px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #2563eb,
+            #7c3aed
+        );
+
+    font-size: 21px;
+
+    box-shadow:
+        0 7px 20px
+        rgba(37, 99, 235, 0.25);
+}
+
+.brand-text h1 {
+    color: var(--text-dark);
+
+    font-size: 21px;
+
+    font-weight: 850;
+
+    letter-spacing: -0.6px;
+}
+
+.brand-text p {
+    margin-top: 4px;
+
+    color: var(--muted);
+
+    font-size: 9px;
+
+    font-weight: 700;
+
+    text-transform: uppercase;
+
+    letter-spacing: 1px;
+}
+
+
+/* =========================================================
+   HEADER ACTIONS
+========================================================= */
+
+.header-actions {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.last-update {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+
+    color: var(--muted);
+
+    font-size: 10px;
+    font-weight: 700;
+
+    margin-right: 4px;
+}
+
+.last-update strong {
+    color: var(--text-dark);
+}
+
+
+/* =========================================================
+   BUTTONS
+========================================================= */
+
+.refresh-btn,
+.icon-btn,
+.notes-btn {
+    min-height: 39px;
+
+    border: 1px solid var(--border);
+
+    border-radius: 10px;
+
+    background: var(--surface);
+
+    color: var(--text);
+
+    cursor: pointer;
+
+    font-family: inherit;
+
+    font-size: 10px;
+
+    font-weight: 800;
+
+    transition: 0.2s ease;
+}
+
+.refresh-btn {
+    padding: 0 13px;
+
+    display: flex;
+    align-items: center;
+    gap: 6px;
+
+    color: white;
+
+    background:
+        linear-gradient(
+            135deg,
+            #2563eb,
+            #4f46e5
+        );
+
+    border: none;
+}
+
+.icon-btn {
+    width: 39px;
+}
+
+.notes-btn {
+    padding: 0 12px;
+}
+
+.refresh-btn:hover,
+.icon-btn:hover,
+.notes-btn:hover {
+    transform: translateY(-2px);
+}
+
+.icon-btn:hover,
+.notes-btn:hover {
+    background: var(--surface-soft);
+    border-color: var(--primary);
+}
+
+#refreshIcon {
+    font-size: 16px;
+}
+
+.refreshing #refreshIcon {
+    animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+
+/* =========================================================
+   HOME BAR
+========================================================= */
+
+.home-bar {
+    width: calc(100% - 36px);
+    max-width: 1900px;
+
+    margin: 0 auto 14px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.home-bar strong {
+    color: var(--text-dark);
+
+    font-size: 12px;
+    font-weight: 900;
+}
+
+.home-bar div:first-child span {
+    color: var(--muted);
+    font-size: 10px;
+}
+
+.mobile-update {
+    color: var(--muted);
+    font-size: 10px;
+    font-weight: 700;
+}
+
+
+/* =========================================================
+   NEWS GRID
+========================================================= */
+
+.news-grid {
+    width: calc(100% - 36px);
+    max-width: 1900px;
+
+    margin: 0 auto 30px;
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(5, minmax(0, 1fr));
+
+    gap: 14px;
+}
+
+
+/* =========================================================
+   NEWS COLUMN
+========================================================= */
+
+.news-column {
+    min-width: 0;
+
+    display: flex;
+    flex-direction: column;
+
+    background: var(--surface);
+
+    border: 1px solid var(--border);
+
+    border-radius: 17px;
+
+    overflow: hidden;
+
+    box-shadow: var(--shadow);
+
+    transition: 0.25s ease;
+}
+
+.news-column:hover {
+    transform: translateY(-3px);
+
+    box-shadow:
+        0 17px 38px
+        rgba(15, 23, 42, 0.12);
+}
+
+
+/* =========================================================
+   COLUMN HEADER
+========================================================= */
+
+.column-header {
+    min-height: 75px;
+
+    padding: 13px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 8px;
+
+    background: var(--surface-soft);
+
+    border-bottom: 1px solid var(--border);
+}
+
+.source-info {
+    min-width: 0;
+
+    display: flex;
+    align-items: center;
+
+    gap: 9px;
+}
+
+.source-logo {
+    width: 40px;
+    height: 40px;
+
+    flex-shrink: 0;
+
+    display: grid;
+    place-items: center;
+
+    border-radius: 11px;
+
+    color: white;
+
+    background:
+        linear-gradient(
+            135deg,
+            #2563eb,
+            #7c3aed
+        );
+
+    font-size: 9px;
+    font-weight: 950;
+}
+
+.source-info h2 {
+    max-width: 125px;
+
+    overflow: hidden;
+
+    white-space: nowrap;
+
+    text-overflow: ellipsis;
+
+    color: var(--text-dark);
+
+    font-size: 12px;
+
+    font-weight: 900;
+}
+
+.source-info p {
+    margin-top: 3px;
+
+    color: var(--muted);
+
+    font-size: 8px;
+}
+
+.live-badge {
+    flex-shrink: 0;
+
+    padding: 5px 7px;
+
+    border-radius: 6px;
+
+    color: #16a34a;
+
+    background:
+        rgba(34, 197, 94, 0.10);
+
+    font-size: 7px;
+    font-weight: 950;
+}
+
+.live-badge::before {
+    content: "";
+
+    display: inline-block;
+
+    width: 5px;
+    height: 5px;
+
+    margin-right: 3px;
+
+    border-radius: 50%;
+
+    background: #22c55e;
+}
+
+
+/* =========================================================
+   HEADLINES
+========================================================= */
+
+.headline-list {
+    padding: 8px;
+
+    display: flex;
+    flex-direction: column;
+
+    gap: 6px;
+
+    flex: 1;
+}
+
+.headline {
+    width: 100%;
+
+    min-height: 80px;
+
+    padding: 10px;
+
+    display: flex;
+    align-items: flex-start;
+
+    gap: 8px;
+
+    text-align: left;
+
+    border: 1px solid transparent;
+
+    border-radius: 11px;
+
+    background: var(--surface-soft);
+
+    color: var(--text);
+
+    cursor: pointer;
+
+    font-family: inherit;
+
+    transition: 0.2s ease;
+}
+
+.headline:hover {
+    background:
+        rgba(37, 99, 235, 0.07);
+
+    border-color:
+        rgba(37, 99, 235, 0.20);
+
+    transform: translateX(2px);
+}
+
+.number {
+    width: 24px;
+    height: 24px;
+
+    flex-shrink: 0;
+
+    display: grid;
+    place-items: center;
+
+    border-radius: 7px;
+
+    background: var(--surface);
+
+    border: 1px solid var(--border);
+
+    color: var(--primary);
+
+    font-size: 8px;
+    font-weight: 900;
+}
+
+.headline-text {
+    min-width: 0;
+
+    display: -webkit-box;
+
+    -webkit-line-clamp: 4;
+
+    -webkit-box-orient: vertical;
+
+    overflow: hidden;
+
+    color: var(--text);
+
+    font-size: 10px;
+
+    line-height: 1.55;
+
+    font-weight: 700;
+}
+
+
+/* =========================================================
+   COLUMN FOOTER
+========================================================= */
+
+.column-footer {
+    padding: 10px 13px;
+
+    background: var(--surface-soft);
+
+    border-top: 1px solid var(--border);
+}
+
+.column-footer a {
+    color: var(--primary);
+
+    text-decoration: none;
+
+    font-size: 9px;
+
+    font-weight: 800;
+}
+
+.column-footer a:hover {
+    text-decoration: underline;
+}
+
+
+/* =========================================================
+   NOTES
+========================================================= */
+
+.notes-panel {
+    position: fixed;
+
+    right: 20px;
+    bottom: 20px;
+
+    z-index: 5000;
+
+    width: 350px;
+
+    max-width:
+        calc(100vw - 40px);
+
+    background: var(--surface);
+
+    border: 1px solid var(--border);
+
+    border-radius: 17px;
+
+    box-shadow: var(--shadow-big);
+
+    overflow: hidden;
+}
+
+.notes-header {
+    padding: 14px;
+
+    display: flex;
+    justify-content: space-between;
+
+    border-bottom: 1px solid var(--border);
+}
+
+.notes-header h2 {
+    color: var(--text-dark);
+
+    font-size: 13px;
+}
+
+.notes-header p {
+    margin-top: 3px;
+
+    color: var(--muted);
+
+    font-size: 9px;
+}
+
+.close-small {
+    border: none;
+
+    background: transparent;
+
+    color: var(--muted);
+
+    font-size: 17px;
+
+    cursor: pointer;
+}
+
+#notesInput {
+    width: 100%;
+
+    min-height: 190px;
+
+    padding: 14px;
+
+    resize: vertical;
+
+    border: none;
+
+    outline: none;
+
+    background: var(--surface);
+
+    color: var(--text);
+
+    font-family: inherit;
+
+    font-size: 12px;
+
+    line-height: 1.6;
+}
+
+.save-notes {
+    margin: 0 14px 8px;
+
+    padding: 8px 12px;
+
+    border: none;
+
+    border-radius: 8px;
+
+    background: var(--primary);
+
+    color: white;
+
+    font-size: 10px;
+
+    font-weight: 800;
+
+    cursor: pointer;
+}
+
+.notes-status {
+    display: block;
+
+    padding: 0 14px 12px;
+
+    color: var(--success);
+
+    font-size: 9px;
+}
+
+
+/* =========================================================
+   =========================================================
+   NEWS MODAL OVERLAY
+   =========================================================
+========================================================= */
+
+#newsModal {
+    position: fixed;
+
+    inset: 0;
+
+    z-index: 99999;
+
+    /*
+       IMPORTANT:
+       Hidden by default.
+    */
+
+    display: none;
+
+    align-items: center;
+    justify-content: center;
+
+    padding: 25px;
+
+    /*
+       ONLY THIS LAYER IS BLURRED.
+    */
+
+    background:
+        rgba(3, 7, 18, 0.78);
+
+    backdrop-filter:
+        blur(6px);
+
+    -webkit-backdrop-filter:
+        blur(6px);
+}
+
+#newsModal.active {
+    display: flex;
+}
+
+
+/* =========================================================
+   MODAL CARD
+========================================================= */
+
+.news-modal {
+    position: relative;
+
+    z-index: 100000;
+
+    width: min(850px, 100%);
+
+    max-height: 88vh;
+
+    /*
+       THIS IS THE IMPORTANT FIX.
+
+       Completely solid background.
+    */
+
+    background: var(--surface);
+
+    opacity: 1 !important;
+
+    filter: none !important;
+
+    backdrop-filter: none !important;
+
+    -webkit-backdrop-filter: none !important;
+
+    border:
+        1px solid var(--border);
+
+    border-radius: 20px;
+
+    box-shadow:
+        0 30px 90px
+        rgba(0, 0, 0, 0.40);
+
+    /*
+       The card itself scrolls.
+    */
+
+    overflow-y: auto;
+
+    overflow-x: hidden;
+
+    /*
+       Keep children inside.
+    */
+
+    isolation: isolate;
+
+    animation:
+        modalOpen 0.22s ease;
+}
+
+@keyframes modalOpen {
+    from {
+        opacity: 0;
+        transform:
+            translateY(12px)
+            scale(0.98);
+    }
+
+    to {
+        opacity: 1;
+        transform:
+            translateY(0)
+            scale(1);
+    }
+}
+
+
+/* =========================================================
+   CLOSE BUTTON
+========================================================= */
+
+.modal-close {
+    position: absolute;
+
+    top: 16px;
+    right: 16px;
+
+    z-index: 20;
+
+    width: 38px;
+    height: 38px;
+
+    display: grid;
+    place-items: center;
+
+    border:
+        1px solid var(--border);
+
+    border-radius: 10px;
+
+    background: var(--surface-soft);
+
+    color: var(--text);
+
+    cursor: pointer;
+
+    font-size: 17px;
+
+    transition: 0.2s ease;
+}
+
+.modal-close:hover {
+    background: var(--danger);
+
+    border-color: var(--danger);
+
+    color: white;
+
+    transform: rotate(90deg);
+}
+
+
+/* =========================================================
+   MODAL SOURCE
+========================================================= */
+
+.modal-source {
+    padding: 22px 26px 16px;
+
+    display: flex;
+    align-items: center;
+
+    gap: 11px;
+
+    background: var(--surface);
+
+    border-bottom:
+        1px solid var(--border);
+}
+
+.modal-source-logo {
+    width: 43px;
+    height: 43px;
+
+    display: grid;
+    place-items: center;
+
+    flex-shrink: 0;
+
+    border-radius: 11px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #2563eb,
+            #7c3aed
+        );
+
+    color: white;
+
+    font-size: 10px;
+
+    font-weight: 950;
+}
+
+.modal-source-name {
+    color: var(--text-dark);
+
+    font-size: 12px;
+
+    font-weight: 900;
+}
+
+.modal-date {
+    margin-top: 3px;
+
+    color: var(--muted);
+
+    font-size: 9px;
+}
+
+
+/* =========================================================
+   MODAL TITLE
+========================================================= */
+
+.modal-title {
+    margin: 0;
+
+    padding:
+        22px 70px 18px 26px;
+
+    color: var(--text-dark);
+
+    background: var(--surface);
+
+    font-size:
+        clamp(21px, 3vw, 31px);
+
+    line-height: 1.3;
+
+    font-weight: 850;
+
+    letter-spacing: -0.6px;
+
+    /*
+       NO BLUR.
+    */
+
+    opacity: 1 !important;
+
+    filter: none !important;
+}
+
+
+/* =========================================================
+   SUMMARY BOX
+========================================================= */
+
+.summary-box {
+    margin:
+        0 26px;
+
+    padding:
+        20px 22px;
+
+    background:
+        var(--surface-soft);
+
+    border:
+        1px solid var(--border);
+
+    border-radius:
+        14px;
+
+    /*
+       VERY IMPORTANT:
+       Summary area gets its own
+       clean solid layer.
+    */
+
+    opacity:
+        1 !important;
+
+    filter:
+        none !important;
+
+    backdrop-filter:
+        none !important;
+
+    -webkit-backdrop-filter:
+        none !important;
+}
+
+
+/* =========================================================
+   SUMMARY HEADING
+========================================================= */
+
+.summary-box h3 {
+    margin-bottom:
+        14px;
+
+    color:
+        var(--text-dark);
+
+    font-size:
+        12px;
+
+    font-weight:
+        900;
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    gap:
+        5px;
+}
+
+
+/* =========================================================
+   SUMMARY TEXT
+========================================================= */
+
+#modalSummary {
+    /*
+       THIS IS THE MAIN FIX.
+    */
+
+    display: block;
+
+    position: relative;
+
+    z-index: 2;
+
+    width: 100%;
+
+    margin: 0;
+
+    padding: 0;
+
+    /*
+       Solid readable text.
+    */
+
+    color: var(--text) !important;
+
+    background: transparent !important;
+
+    opacity: 1 !important;
+
+    filter: none !important;
+
+    backdrop-filter: none !important;
+
+    -webkit-backdrop-filter: none !important;
+
+    /*
+       Good reading size.
+    */
+
+    font-family:
+        "Inter",
+        system-ui,
+        sans-serif;
+
+    font-size: 14px;
+
+    line-height: 1.85;
+
+    font-weight: 450;
+
+    letter-spacing: 0;
+
+    /*
+       Text rendering.
+    */
+
+    text-rendering:
+        optimizeLegibility;
+
+    -webkit-font-smoothing:
+        antialiased;
+
+    /*
+       Long words/URLs won't break layout.
+    */
+
+    overflow-wrap:
+        break-word;
+
+    word-break:
+        normal;
+
+    /*
+       Preserve paragraph spacing
+       if backend sends line breaks.
+    */
+
+    white-space:
+        pre-line;
+}
+
+
+/* =========================================================
+   MODAL BUTTONS
+========================================================= */
+
+.modal-buttons {
+    margin:
+        20px 26px 0;
+
+    padding:
+        18px 0 0;
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        flex-end;
+
+    gap:
+        10px;
+
+    border-top:
+        1px solid var(--border);
+
+    background:
+        var(--surface);
+}
+
+
+/* =========================================================
+   SCREENSHOT BUTTON
+========================================================= */
+
+.screenshot-btn {
+    min-height:
+        42px;
+
+    padding:
+        0 15px;
+
+    display:
+        inline-flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
+
+    gap:
+        6px;
+
+    border:
+        1px solid var(--border);
+
+    border-radius:
+        9px;
+
+    background:
+        var(--surface-soft);
+
+    color:
+        var(--text);
+
+    font-family:
+        inherit;
+
+    font-size:
+        10px;
+
+    font-weight:
+        800;
+
+    cursor:
+        pointer;
+
+    transition:
+        0.2s ease;
+}
+
+.screenshot-btn:hover {
+    color:
+        var(--primary);
+
+    border-color:
+        var(--primary);
+
+    transform:
+        translateY(-2px);
+}
+
+
+/* =========================================================
+   READ BUTTON
+========================================================= */
+
+.read-btn {
+    min-height:
+        42px;
+
+    padding:
+        0 16px;
+
+    display:
+        inline-flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
+
+    gap:
+        5px;
+
+    border:
+        none;
+
+    border-radius:
+        9px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #2563eb,
+            #4f46e5
+        );
+
+    color:
+        white;
+
+    text-decoration:
+        none;
+
+    font-size:
+        10px;
+
+    font-weight:
+        850;
+
+    box-shadow:
+        0 7px 18px
+        rgba(37, 99, 235, 0.20);
+
+    transition:
+        0.2s ease;
+}
+
+.read-btn:hover {
+    transform:
+        translateY(-2px);
+
+    box-shadow:
+        0 10px 25px
+        rgba(37, 99, 235, 0.30);
+}
+
+
+/* =========================================================
+   MODAL FOOTER
+========================================================= */
+
+.modal-footer {
+    margin:
+        15px 26px 22px;
+
+    color:
+        var(--muted);
+
+    font-size:
+        9px;
+
+    line-height:
+        1.5;
+
+    text-align:
+        center;
+}
+
+
+/* =========================================================
+   MODAL SCROLLBAR
+========================================================= */
+
+.news-modal::-webkit-scrollbar {
+    width: 7px;
+}
+
+.news-modal::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.news-modal::-webkit-scrollbar-thumb {
+    background: var(--border);
+
+    border-radius: 20px;
+}
+
+.news-modal::-webkit-scrollbar-thumb:hover {
+    background: var(--muted);
+}
+
+
+/* =========================================================
+   SKELETON
+========================================================= */
+
+.skeleton-header {
+    height: 75px;
+
+    background:
+        linear-gradient(
+            90deg,
+            var(--surface-soft),
+            var(--border),
+            var(--surface-soft)
+        );
+
+    background-size:
+        200% 100%;
+
+    animation:
+        skeleton 1.4s infinite;
+}
+
+.skeleton-list {
+    padding: 10px;
+
+    display: flex;
+    flex-direction: column;
+
+    gap: 7px;
+}
+
+.skeleton-item {
+    height: 80px;
+
+    border-radius: 11px;
+
+    background:
+        linear-gradient(
+            90deg,
+            var(--surface-soft),
+            var(--border),
+            var(--surface-soft)
+        );
+
+    background-size:
+        200% 100%;
+
+    animation:
+        skeleton 1.4s infinite;
+}
+
+@keyframes skeleton {
+    0% {
+        background-position:
+            200% 0;
+    }
+
+    100% {
+        background-position:
+            -200% 0;
+    }
+}
+
+
+/* =========================================================
+   DESKTOP
+========================================================= */
+
+@media (max-width: 1200px) {
+
+    .news-grid {
+        grid-template-columns:
+            repeat(3, minmax(0, 1fr));
+    }
+
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 800px) {
+
+    .header {
+        position: relative;
+
+        top: auto;
+
+        width:
+            calc(100% - 20px);
+
+        margin-top: 10px;
+
+        padding:
+            12px 14px;
+
+        flex-wrap: wrap;
+    }
+
+    .header-actions {
+        width: 100%;
+
+        justify-content:
+            flex-end;
+    }
+
+    .home-bar {
+        width:
+            calc(100% - 20px);
+    }
+
+    .news-grid {
+        width:
+            calc(100% - 20px);
+
+        grid-template-columns:
+            repeat(2, minmax(0, 1fr));
+
+        gap: 10px;
+    }
+
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 550px) {
+
+    .brand-text h1 {
+        font-size: 18px;
+    }
+
+    .brand-text p {
+        font-size: 8px;
+    }
+
+    .last-update {
+        display: none;
+    }
+
+    .news-grid {
+        grid-template-columns: 1fr;
+    }
+
+    #newsModal {
+        padding: 9px;
+    }
+
+    .news-modal {
+        width: 100%;
+
+        max-height:
+            94vh;
+
+        border-radius:
+            16px;
+    }
+
+    .modal-source {
+        padding:
+            18px 18px 14px;
+    }
+
+    .modal-title {
+        padding:
+            19px 55px 15px 18px;
+
+        font-size:
+            21px;
+    }
+
+    .summary-box {
+        margin:
+            0 18px;
+
+        padding:
+            16px;
+    }
+
+    #modalSummary {
+        font-size:
+            13.5px;
+
+        line-height:
+            1.8;
+    }
+
+    .modal-buttons {
+        margin:
+            18px 18px 0;
+
+        flex-direction:
+            column;
+
+        align-items:
+            stretch;
+    }
+
+    .screenshot-btn,
+    .read-btn {
+        width: 100%;
+    }
+
+    .modal-footer {
+        margin:
+            13px 18px 18px;
+    }
+
+    .notes-panel {
+        right: 10px;
+        bottom: 10px;
+
+        width:
+            calc(100vw - 20px);
+    }
+
+}
